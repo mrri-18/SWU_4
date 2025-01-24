@@ -6,7 +6,7 @@ while True:
     n=combi[0]
     if n == 0:
         break
-    combi.remove(n)
+    combi=combi[1:]
 
     for i in combinations(combi,6):
         for x in list(i):
