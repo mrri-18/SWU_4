@@ -2,8 +2,9 @@ import sys
 
 def back(index, add):
     global max_income  
-    if index <= n:
-        max_income = max(max_income, sum(add))
+    if index<=n:
+        if max_income<sum(add):
+            max_income=sum(add)
 
     if index>=n:
         return
