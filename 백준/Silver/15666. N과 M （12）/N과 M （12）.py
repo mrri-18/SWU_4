@@ -1,25 +1,20 @@
-#15666
-
 import sys
 
-def back(number,arr,index):
-    if len(arr)==m : # 종료 조건
-        if arr not in answer:
-            answer.append(arr[:])
-        return        
-    for i in range(index,len(number)): # 방문했는지 확인 x
-        arr.append(number[i]) 
-        back(number,result,i)
+def back(number, arr, index):
+    if len(arr) == m:
+        answer.add(tuple(arr))  # 중복 제거
+        return
+
+    for i in range(index, len(number)):  # 중복 선택 가능하므로 인덱스부터 시작
+        arr.append(number[i])
+        back(number, arr, i)  
         arr.pop()
 
+n, m = map(int, sys.stdin.readline().split())
+num = sorted(map(int, sys.stdin.readline().split()))  
+answer = set()  
 
-n,m=map(int, sys.stdin.readline().split())
-result=[]
-answer=[]
-num= list(map(int,sys.stdin.readline().split()))
-num.sort()
-back(num,result,0)
-for i in answer:
-    for j in i:
-        print(j, end=' ')
-    print('')
+back(num, [], 0)
+
+for seq in sorted(answer):  # 사전순 출력
+    print(*seq)
