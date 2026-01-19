@@ -8,7 +8,7 @@ def solution(scoville, K):
             tmp2=heapq.heappop(scoville)
             heapq.heappush(scoville,tmp1+(tmp2*2))
             answer+=1
-        else:
+        else: # K이상 합칠 수 없는 경우
             return -1
     
     return answer
