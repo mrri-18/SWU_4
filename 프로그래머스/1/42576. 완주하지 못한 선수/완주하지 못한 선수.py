@@ -4,7 +4,7 @@ def solution(participant, completion):
     c_count=Counter(completion)
     for i in participant:
         if p_count[i]==c_count[i]:
-            pass
+            continue
         else:
             return i
         
