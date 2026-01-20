@@ -1,11 +1,11 @@
 def solution(sizes): 
     width=[]
     height=[]
-    
-    #그리디
     for i,j in sizes:
-        width.append(max(i,j)) # 데이터 단순화=> 가로가 긴 쪽으로 고정
-        height.append(min(i,j))        
-        
+        if i>j: 
+            width.append(i)
+            height.append(j)
+        else:
+            width.append(j)
+            height.append(i)
     return max(width)*max(height)
-    
