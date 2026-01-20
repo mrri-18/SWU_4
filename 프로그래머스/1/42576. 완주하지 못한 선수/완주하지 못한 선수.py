@@ -1,4 +1,10 @@
 from collections import Counter
 def solution(participant, completion):
-    player=Counter(participant)-Counter(completion)
-    return list(player.keys())[0]
+    p_count=Counter(participant) # 딕셔너리
+    c_count=Counter(completion)
+    for i in participant:
+        if p_count[i]==c_count[i]:
+            pass
+        else:
+            return i
+        
