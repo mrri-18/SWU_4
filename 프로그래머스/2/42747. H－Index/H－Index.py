@@ -6,4 +6,4 @@ def solution(citations):
         h_candidate = n - i 
         if citations[i] >= h_candidate:
             return h_candidate
-    return 0
+    return 0 # 모든 원소가 0인 경우
