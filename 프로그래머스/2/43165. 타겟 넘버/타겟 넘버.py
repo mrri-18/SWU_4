@@ -1,12 +1,12 @@
 def solution(numbers, target):
-    num=[(0,0)]
-    answer=0
-    while num:
-        cur_sum,idx=num.pop()
-        if idx==len(numbers) and cur_sum==target:
-            answer+=1
-        elif idx < len(numbers):
-            num.append((cur_sum+numbers[idx], idx+1))
-            num.append((cur_sum-numbers[idx], idx+1))
-        
-    return answer
+    calc=[(0,0)]
+    count=0
+    while calc:
+        num, index=calc.pop()
+        if index<len(numbers):
+            calc.append((num+numbers[index], index+1))
+            calc.append((num-numbers[index], index+1))
+        else:
+            if num==target:
+                count+=1
+    return count
