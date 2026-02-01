@@ -1,20 +1,22 @@
-#15650
 import sys
+input=sys.stdin.readline
 
-def back(index,arr):
-    if len(arr)==m: # 종료 조건
-        print(' '.join(map(str,arr)))
-        return
-    for i in range(index,n+1):
-        if visited[i]:
-            continue
-        visited[i]=True
-        arr.append(i) # 가지치기
-        back(i+1,arr) # 현재 선택한 숫자 i를 기준으로 다음 탐색 범위를 제한
-        arr.pop()
-        visited[i]=False
-
-n,m=map(int, sys.stdin.readline().split())
-result=[]
+n,m=map(int,input().split())
 visited=[False]*(n+1)
-back(1,result)
+
+def back(combi,num):
+    if len(combi)==m:
+        print(*combi)
+        return
+    else:
+        for i in range(num,n+1):
+            if visited[i]:
+                continue
+            else:
+                combi.append(i)
+                visited[i]=True
+                back(combi,i+1)
+                combi.pop()
+                visited[i]=False # 다시 방문 가능
+
+back([],1)
